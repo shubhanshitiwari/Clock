@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Clock</title>
+    <style>
+        body {
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #000; /* Black background */
+            font-family: 'Courier New', monospace; /* Monospace font for a digital look */
+            color: #fff; /* White text */
+        }
+        .container {
+            text-align: center;
+            border: 2px solid #FFF; /* White border */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(234, 232, 232, 0.5); /* Stronger shadow for more emphasis */
+            background: rgba(255, 255, 255, 0.1); /* Slightly translucent background */
+            backdrop-filter: blur(5px); /* Blur effect for background */
+        }
+        .container span {
+            display: inline-block;
+            font-size: 3em;
+            margin: 0 5px;
+            padding: 10px 20px;
+            border-radius: 5px;
+            background: rgba(255, 255, 255, 0.2); /* Translucent background for time elements */
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.3); /* Glow effect */
+        }
+        #date {
+            display: block;
+            font-size: 1.5em;
+            margin-bottom: 10px;
+            color: #f39c12; /* Golden color for date */
+            text-shadow: 0 0 5px rgba(243, 156, 18, 0.7); /* Glow effect for date */
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="big">
+   <div class="container">
+    DATE<br><br>
+    <span id="date">date</span>
+    CURRENT TIME<BR><br>
+    <span id="hr">00</span>
+    <span>:</span>
+    <span id="min">00</span>
+    <span>:</span>
+    <span id="sec">00</span>
+   </div> </div>
+   <script>
+    let hr = document.getElementById("hr");
+    let min = document.getElementById("min");
+    let sec = document.getElementById("sec");
+    let date = document.getElementById("date");
+    
+    setInterval(()=>{
+        let current = new Date();
+    hr.innerHTML = (current.getHours()<10?"0":"")+current.getHours();
+    min.innerHTML = (current.getMinutes()<10?"0":"")+current.getMinutes();
+    sec.innerHTML = (current.getSeconds()<10?"0":"")+current.getSeconds();
+    date.innerHTML = current.toLocaleDateString();
+
+    },1000)
+    
+    
+
+   </script>
+</body>
+</html>
